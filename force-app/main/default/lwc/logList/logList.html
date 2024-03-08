@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Log Case List" icon-name="custom:custom14">
+        <div class="slds-m-around_medium">
+            <template if:true={caseLogs}>
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Created Date">Created Date</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Previous Value">Previous Value</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="New Value">New Value</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={caseLogs} for:item="caseLog">
+                            <tr key={caseLog.Id__c}>
+                                <td data-label="Created Date">
+                                    <div class="slds-truncate">{caseLog.UpdatedDate__c}</div>
+                                </td>
+                                <td data-label="Previous Value">
+                                    <div class="slds-truncate">{caseLog.PrevValue__c}</div>
+                                </td>
+                                <td data-label="New Value">
+                                    <div class="slds-truncate">{caseLog.NewValue__c}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+        </div>
+    </lightning-card>
+</template>
