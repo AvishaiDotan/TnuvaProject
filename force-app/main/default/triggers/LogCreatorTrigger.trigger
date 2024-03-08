@@ -1,5 +1,7 @@
 trigger LogCreatorTrigger on Case (after update) {
-   System.debug('Triggered');
+    // System.debug('Triggered');
+    // System.debug('UserInfo.getUserName' + ' ' + UserInfo.getUserName());
+    // System.debug('UserInfo.getUserId()' + ' ' + UserInfo.getUserId());
 
    List<Case> oldCases = Trigger.old;
    List<Case> newCases = Trigger.new;
@@ -21,8 +23,12 @@ trigger LogCreatorTrigger on Case (after update) {
                     caseLog.PrevValue__c = String.valueOf(oldFieldValue) ;
                     caseLog.NewValue__c = String.valueOf(newFieldValue);
                     caseLog.UpdatedDate__c = DateTime.now();
-                    caseLog.AccountId__c = oldCase.AccountId;
+                    caseLog.CaseNumber__c = oldCase.CaseNumber;
+                    caseLog.UpdatedBy__c = UserInfo.getUserName();
                     insert caseLog;
+                    
+                    RECORD_CHANGE_CHANNEL__e event = new RECORD_CHANGE_CHANNEL__e()
+                    EventBus.publish(event);
                 }
             }
        }
