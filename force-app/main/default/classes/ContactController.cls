@@ -4,7 +4,7 @@ public with sharing class ContactController {
         List<Contact> nonAssociatedContracts = new List<Contact>();
         try {
             nonAssociatedContracts = [
-                SELECT Id, Name, Email, MobilePhone
+                SELECT Id, Name, Email, MobilePhone, Description
                 FROM Contact
                 WHERE AccountId = null OR AccountId = ''
                 LIMIT 10
@@ -18,7 +18,7 @@ public with sharing class ContactController {
     @AuraEnabled
     public static void AssociateContactToAccount(String contactId, String accountId) {
         try {
-            Contact[] contactRecord = [SELECT Id, AccountId FROM Contact WHERE Id = :contactId LIMIT 1];
+            Contact[] contactRecord = [SELECT Id, AccountId, MobilePhone,Description, Name  FROM Contact WHERE Id = :contactId LIMIT 1];
             if (contactRecord.size() == 0) {
                 throw new AuraHandledException('Contact not found');
             }
@@ -29,8 +29,9 @@ public with sharing class ContactController {
             }
 
             contactRecord[0].AccountId = accountRecord[0].Id;
+
             update contactRecord;
-     
+    
         } catch (Exception e) {
             System.debug('Error associating Contact with Account: ' + e.getMessage());
         }
