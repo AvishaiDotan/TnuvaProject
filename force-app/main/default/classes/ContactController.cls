@@ -18,15 +18,17 @@ public with sharing class ContactController {
     @AuraEnabled
     public static void AssociateContactToAccount(String contactId, String accountId) {
         try {
-            System.debug('AssociateContactToAccount: contactId=' + contactId + ', accountId=' + accountId);
-            Contact contactRecord = [SELECT Id, AccountId FROM Contact WHERE Id = :contactId LIMIT 1];
-            Account accountRecord = [SELECT Name FROM Account WHERE Name = :accountId LIMIT 1];
-
-            if (accountRecord == null || contactRecord == null) {
-                throw new AuraHandledException('Account or Contact not found');
+            Contact[] contactRecord = [SELECT Id, AccountId FROM Contact WHERE Id = :contactId LIMIT 1];
+            if (contactRecord.size() == 0) {
+                throw new AuraHandledException('Contact not found');
             }
 
-            contactRecord.AccountId = accountRecord.Name;
+            Account[] accountRecord = [SELECT Name, Id FROM Account WHERE Name = :accountId LIMIT 1];
+            if (accountRecord.size() == 0) {
+                throw new AuraHandledException('Account not found');
+            }
+
+            contactRecord[0].AccountId = accountRecord[0].Id;
             update contactRecord;
      
         } catch (Exception e) {
