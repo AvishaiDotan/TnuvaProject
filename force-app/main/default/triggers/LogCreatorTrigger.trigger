@@ -27,7 +27,9 @@ trigger LogCreatorTrigger on Case (after update) {
                     caseLog.UpdatedBy__c = UserInfo.getUserName();
                     insert caseLog;
                     
-                    RECORD_CHANGE_CHANNEL__e event = new RECORD_CHANGE_CHANNEL__e()
+
+                    CaseLogInserted__e event = new CaseLogInserted__e();
+                    event.CaseNumber__c = oldCase.CaseNumber;
                     EventBus.publish(event);
                 }
             }
