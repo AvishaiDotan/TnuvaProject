@@ -1,3 +1,34 @@
 <template>
-    <h1>Account List</h1>
+    <lightning-card title="Non-Associated Contacts">
+        <div class="slds-m-around_medium">
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Mobile Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={nonAssociatedContacts} for:item="contact">
+                        <tr key={contact.Id}>
+                            <td>{contact.Name}</td>
+                            <td>{contact.Email}</td>
+                            <td>{contact.MobilePhone}</td>
+                            <td>
+                                <lightning-button
+                                    variant="brand"
+                                    label="Submit"
+                                    title="Submit"
+                                    onclick={onAssociateContact}
+                                    data-id={contact.Id}
+                                ></lightning-button>
+                            </td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
 </template>
