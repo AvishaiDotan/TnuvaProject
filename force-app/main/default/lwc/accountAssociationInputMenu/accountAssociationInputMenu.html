@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Account Details">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Account Phone" value={formattedAccount.phone} onchange={handlePhoneChange}></lightning-input>
+            <lightning-input label="Account Type" value={formattedAccount.type} onchange={handleTypeChange}></lightning-input>
+            <lightning-input label="Account Description" value={formattedAccount.description} onchange={handleDescriptionChange}></lightning-input>
+        </div>
+    </lightning-card>
+</template>

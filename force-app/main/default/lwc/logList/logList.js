@@ -41,6 +41,7 @@ export default class LogList extends LightningElement {
     async setCaseLogs(caseNumber) {
         try {
             const data = await GetAllCaseLogs({ caseNumber });
+            console.log(data);
             this.caseLogs = data;
         }
         catch (error) {

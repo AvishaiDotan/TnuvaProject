@@ -6,6 +6,9 @@
                     <thead>
                         <tr class="slds-line-height_reset">
                             <th scope="col">
+                                <div class="slds-truncate" title="Field Name">Field Name</div>
+                            </th>
+                            <th scope="col">
                                 <div class="slds-truncate" title="Created Date">Created Date</div>
                             </th>
                             <th scope="col">
@@ -19,6 +22,9 @@
                     <tbody>
                         <template for:each={caseLogs} for:item="caseLog">
                             <tr key={caseLog.Id}>
+                                <td data-label="Field Name">
+                                    <div class="slds-truncate">{caseLog.FieldName__c}</div>
+                                </td>
                                 <td data-label="Created Date">
                                     <div class="slds-truncate">{caseLog.UpdatedDate__c}</div>
                                 </td>
