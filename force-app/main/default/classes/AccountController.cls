@@ -3,9 +3,6 @@ public with sharing class AccountController {
     @AuraEnabled
     public static void PutAccount(String accountId, Map<String, String> fieldUpdates) {
         try {
-            System.debug('fieldUpdates: ' + fieldUpdates);
-            System.debug('accountId: ' + accountId);
-            
             Account[] acc = [SELECT Id, Type, Description, Phone FROM Account WHERE Id = :accountId LIMIT 1];
             if (acc.size() == 0) {
                 throw new AuraHandledException('Account not found');
