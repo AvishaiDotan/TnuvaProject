@@ -41,3 +41,9 @@ The project includes implementation of **Apex Queueable** and **Database.Batchab
 - The built-in Toast Service is utilized to display user messages for successful and failed attempts at connecting contacts to accounts.
 - Custom JavaScript events are used to facilitate data communication between components.
 
+### 3. 20'000 Rows In A Hit! - Apex Queueable & Database.Batchable<Integer> Classes
+- Utilizes the Trigger Apex API to initiate batch actions when a case is created.
+- Given the limitation of 20,000 records per batch action, the `Database.Batchable` interface is utilized to create batches of 200 cases per batch, ensuring efficient processing.
+- Each batch processes 20,000 cases in smaller batches of 200, optimizing performance and ensuring scalability.
+
+
