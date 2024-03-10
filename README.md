@@ -11,7 +11,8 @@ The **LWC Case Page Activity Log** component provides a user-friendly interface 
 
 ### 2. Account Association LWC Component
 
-The **Account Association LWC Component** simplifies the process of associating accounts with various Salesforce records. It offers an intuitive interface within Lightning Experience for users to effortlessly link accounts to relevant records, streamlining data management and fostering better organization within the Salesforce environment.
+The **Account Association LWC Component** simplifies the process of associating accounts with various Salesforce Contacts. It offers an intuitive interface within Lightning Experience for users to effortlessly link accounts to relevant contact, streamlining data management and fostering better organization within the Salesforce environment.
+![image](https://github.com/AvishaiDotan/TnuvaProject/assets/108017307/564af297-aeec-4ffb-911d-5625c25c91bb)
 
 ### 3. Apex Queueable & Database.Batchable<Integer> Classes
 
