@@ -1,18 +1,17 @@
-# Salesforce DX Project: Next Steps
+# Salesforce LWC Apex Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Welcome to the Salesforce LWC Apex Project! This project contains various components aimed at enhancing Salesforce functionality through Lightning Web Components (LWC) and Apex code.
 
-## How Do You Plan to Deploy Your Changes?
+## Features
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### 1. LWC Case Page Activity Log
 
-## Configure Your Salesforce DX Project
+The **LWC Case Page Activity Log** component provides a user-friendly interface for viewing and managing activity logs associated with Salesforce cases. It enhances the standard case page by displaying a comprehensive log of activities related to a particular case, providing valuable insights and improving user experience.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### 2. Account Association LWC Component
 
-## Read All About It
+The **Account Association LWC Component** simplifies the process of associating accounts with various Salesforce records. It offers an intuitive interface within Lightning Experience for users to effortlessly link accounts to relevant records, streamlining data management and fostering better organization within the Salesforce environment.
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### 3. Apex Queueable & Database.Batchable<Integer> Classes
+
+The project includes **Apex Queueable** and **Database.Batchable<Integer>** classes designed to handle batch data insertion efficiently. These classes leverage Salesforce's asynchronous processing capabilities to manage large volumes of data insertion tasks, enhancing performance and scalability for data-intensive operations.
