@@ -17,3 +17,12 @@ The **Account Association LWC Component** simplifies the process of associating 
 ### 3. 20'000 Rows In A Hit! - Apex Queueable & Database.Batchable<Integer> Classes
 
 The project includes implementation of **Apex Queueable** and **Database.Batchable<Integer>** classes designed to handle batch data insertion efficiently. These classes leverage Salesforce's asynchronous processing capabilities to manage large volumes of data insertion tasks, enhancing performance and scalability for data-intensive operations.
+
+## Tech 
+
+### 1. LWC Case Page Activity Log
+- This component leverages the Trigger API to detect changes in a case.
+- When a change is detected, the system captures the previous and new values of the changed fields, along with the update date.
+- It then creates a `CaseLog` object with fields such as `PrevValue`, `NewValue`, `Field`, and `UpdateDate`.
+- After creating the `CaseLog` object, it is inserted into the Salesforce database.
+- Additionally, a platform event is triggered to notify other components that may need to refresh and render with the new data.
