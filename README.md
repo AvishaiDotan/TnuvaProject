@@ -6,7 +6,8 @@ Welcome to the Salesforce LWC Apex Project! This project contains various compon
 
 ### 1. LWC Case Page Activity Log
 
-The **LWC Case Page Activity Log** component provides a user-friendly interface for viewing and managing activity logs associated with Salesforce cases. It enhances the standard case page by displaying a comprehensive log of activities related to a particular case, providing valuable insights and improving user experience.
+The **LWC Case Page Activity Log** component provides a user-friendly interface for viewing activity logs associated with Salesforce cases. It enhances the standard case page by displaying a comprehensive log of activities related to a particular case, providing valuable insights and improving user experience.
+![image](https://github.com/AvishaiDotan/TnuvaProject/assets/108017307/a783f9f9-52a3-4b09-9971-f10b58b40599)
 
 ### 2. Account Association LWC Component
 
