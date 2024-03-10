@@ -1,18 +1,49 @@
-# Salesforce DX Project: Next Steps
+# Salesforce LWC Apex Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Welcome to the Salesforce LWC Apex Project! This project contains various components aimed at enhancing Salesforce functionality through Lightning Web Components (LWC) and Apex code.
 
-## How Do You Plan to Deploy Your Changes?
+## Features
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+### 1. LWC Case Page Activity Log
 
-## Configure Your Salesforce DX Project
+The **LWC Case Page Activity Log** component provides a user-friendly interface for viewing activity logs associated with Salesforce cases. It enhances the standard case page by displaying a comprehensive log of activities related to a particular case, providing valuable insights and improving user experience.
+![image](https://github.com/AvishaiDotan/TnuvaProject/assets/108017307/a783f9f9-52a3-4b09-9971-f10b58b40599)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+### 2. Account Association LWC Component
 
-## Read All About It
+The **Account Association LWC Component** simplifies the process of associating accounts with various Salesforce Contacts. It offers an intuitive interface within Lightning Experience for users to effortlessly link accounts to relevant contact, streamlining data management and fostering better organization within the Salesforce environment.
+![image](https://github.com/AvishaiDotan/TnuvaProject/assets/108017307/564af297-aeec-4ffb-911d-5625c25c91bb)
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+### 3. 20'000 Rows In A Hit! - Apex Queueable & Database.Batchable<Integer> Classes
+
+The project includes implementation of **Apex Queueable** and **Database.Batchable<Integer>** classes designed to handle batch data insertion efficiently. These classes leverage Salesforce's asynchronous processing capabilities to manage large volumes of data insertion tasks, enhancing performance and scalability for data-intensive operations.
+
+
+
+
+
+
+
+
+
+## Tech 
+
+### 1. LWC Case Page Activity Log
+- This component leverages the Trigger API to detect changes in a case.
+- When a change is detected, the system captures the previous and new values of the changed fields, along with the update date.
+- It then creates a `CaseLog` object with fields such as `PrevValue`, `NewValue`, `Field`, and `UpdateDate`.
+- After creating the `CaseLog` object, it is inserted into the Salesforce database.
+- Additionally, a platform event is triggered to notify other components that may need to refresh and render with the new data.
+
+### 2. Account Association LWC Component
+- The component utilizes built-in Salesforce APIs such as `recordId`, `getRecord`, and `getFieldValue` to retrieve environment variables, determining which account is being referenced.
+- It employs a custom controller to retrieve unbound contacts and render them as an `AccountList`.
+- The built-in Toast Service is utilized to display user messages for successful and failed attempts at connecting contacts to accounts.
+- Custom JavaScript events are used to facilitate data communication between components.
+
+### 3. 20'000 Rows In A Hit! - Apex Queueable & Database.Batchable<Integer> Classes
+- Utilizes the Trigger Apex API to initiate batch actions when a case is created.
+- Given the limitation of 20,000 records per batch action, the `Database.Batchable` interface is utilized to create batches of 200 cases per batch, ensuring efficient processing.
+- Each batch processes 20,000 cases in smaller batches of 200, optimizing performance and ensuring scalability.
+
+
